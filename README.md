@@ -17,7 +17,7 @@ PostgreSQL 10
 Bootstrap 3.3.6
 Datatables 1.10.12
 jquery 1.12.4
-Chart.js 2.7.2 
+Chart.js 2.7.2
 
 License
 GNU General Public License v3.0
