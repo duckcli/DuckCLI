@@ -5,7 +5,7 @@ The core objective of DuckCLI is to build a portal for configuration-management,
 
 ## TODO -- <Documentation and more at http://duckcli.com > 
 
-## TODO -- <You can find installation instructions <http://duckcli.com>
+## TODO -- <You can find installation instructions http://duckcli.com >
 
 Authors
 Prathap Shetty (prathap.shetty/duckcli/com) created DuckCLI and has contributions from over <0000> users (and growing :) ). Thanks everyone!
