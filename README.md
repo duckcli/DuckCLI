@@ -9,6 +9,7 @@ The core objective of DuckCLI is to build a portal for configuration-management,
 Authors
 Prathap Shetty (prathap.shetty/duckcli/com) created DuckCLI and has contributions from over <0000> users (and growing :) ). Thanks everyone!
 
+![alt text](http://duckcli.com/wp-content/uploads/2018/03/screencap.png)
 
 Requirements ---> 
 
