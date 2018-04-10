@@ -1,6 +1,6 @@
 ![alt text](http://duckcli.com/wp-content/uploads/2018/03/duckcli_logo-300x96.png)
 
-DuckCLI is a simple open source automation portal based on Django web framework. This project is at a very early stage, and DuckCLI code is an Alpha release and not recommended for production use. 
+DuckCLI is a simple open source automation portal based on Django web framework. This project is at a very early stage, and DuckCLI code is an Alpha release.
 The core objective of DuckCLI is to build a portal for configuration-management, cloud provisioning, inventory management, automation planning, change tracker and ad-hoc Ansible task-execution.( Not all features are available now)
 
 ## TODO -- <Documentation and more at http://duckcli.com > 
