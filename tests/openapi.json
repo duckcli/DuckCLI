@@ -1,0 +1,656 @@
+{
+  "openapi": "3.0.2",
+  "info": { "title": "FastAPI", "version": "0.1.0" },
+  "paths": {
+    "/auth/verify_token": {
+      "get": {
+        "summary": "Verify Token",
+        "operationId": "verify_token_auth_verify_token_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    },
+    "/auth/users": {
+      "get": {
+        "summary": "Retrieve All User",
+        "operationId": "retrieve_all_user_auth_users_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    },
+    "/auth/user/{username}": {
+      "get": {
+        "summary": "Retrieve One User",
+        "operationId": "retrieve_one_user_auth_user__username__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Username", "type": "string" },
+            "name": "username",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      },
+      "delete": {
+        "summary": "Delete User Data",
+        "operationId": "delete_user_data_auth_user__username__delete",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Username", "type": "string" },
+            "name": "username",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      },
+      "patch": {
+        "summary": "Update User Data",
+        "operationId": "update_user_data_auth_user__username__patch",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Username", "type": "string" },
+            "name": "username",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/User" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "Create User",
+        "operationId": "create_user_auth_register_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/User" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login",
+        "operationId": "login_auth_login_post",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_login_auth_login_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/superuser/{username}/{enable}": {
+      "patch": {
+        "summary": "Change Superuser",
+        "operationId": "change_superuser_auth_superuser__username___enable__patch",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Username", "type": "string" },
+            "name": "username",
+            "in": "path"
+          },
+          {
+            "required": true,
+            "schema": { "title": "Enable", "type": "boolean" },
+            "name": "enable",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    },
+    "/inventory/device": {
+      "get": {
+        "summary": "Get Device",
+        "operationId": "get_device_inventory_device_get",
+        "parameters": [
+          {
+            "required": false,
+            "schema": { "title": "Hostname", "type": "string" },
+            "name": "hostname",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": { "title": "Os Type", "type": "string" },
+            "name": "os_type",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": { "title": "Site Id", "type": "string" },
+            "name": "site_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      },
+      "post": {
+        "summary": "Add Device",
+        "operationId": "add_device_inventory_device_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Device" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    },
+    "/inventory/device/{hostname}": {
+      "delete": {
+        "summary": "Delete Device",
+        "operationId": "delete_device_inventory_device__hostname__delete",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Hostname", "type": "string" },
+            "name": "hostname",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    },
+    "/network/read/genie": {
+      "post": {
+        "summary": "Network Get",
+        "description": "create of func to run and add this to the MT que\nadd multiprocessing",
+        "operationId": "network_get_network_read_genie_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NetworkRead" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    },
+    "/server/status": {
+      "get": {
+        "summary": "Status Response",
+        "operationId": "status_response_server_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/ping/start": {
+      "post": {
+        "summary": "Run Ping Checks",
+        "operationId": "run_ping_checks_ping_start_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TargetHosts" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        },
+        "security": [{ "OAuth2PasswordBearer": [] }]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body_login_auth_login_post": {
+        "title": "Body_login_auth_login_post",
+        "required": ["username", "password"],
+        "type": "object",
+        "properties": {
+          "grant_type": {
+            "title": "Grant Type",
+            "pattern": "password",
+            "type": "string"
+          },
+          "username": { "title": "Username", "type": "string" },
+          "password": { "title": "Password", "type": "string" },
+          "scope": { "title": "Scope", "type": "string", "default": "" },
+          "client_id": { "title": "Client Id", "type": "string" },
+          "client_secret": { "title": "Client Secret", "type": "string" }
+        }
+      },
+      "BoolEnum": {
+        "title": "BoolEnum",
+        "enum": ["True", "False"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "Commands": {
+        "title": "Commands",
+        "required": ["hostname", "commands"],
+        "type": "object",
+        "properties": {
+          "hostname": { "title": "Hostname", "type": "string" },
+          "commands": {
+            "title": "Commands",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "osType": { "title": "Ostype", "type": "string" },
+          "mgmtIp": {
+            "title": "Mgmtip",
+            "anyOf": [
+              { "type": "string", "format": "ipv4" },
+              { "type": "string", "format": "ipv6" }
+            ]
+          },
+          "driverType": {
+            "$ref": "#/components/schemas/duckcli__backend__app__network__read__schemas__DriverTypeEnum"
+          },
+          "vendor": { "title": "Vendor", "type": "string" },
+          "model": { "title": "Model", "type": "string" },
+          "rawFormat": {
+            "title": "Rawformat",
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "Device": {
+        "title": "Device",
+        "required": ["hostname"],
+        "type": "object",
+        "properties": {
+          "hostname": { "title": "Hostname", "type": "string" },
+          "osType": {
+            "title": "Ostype",
+            "type": "string",
+            "default": "cisco_xr"
+          },
+          "mgmtIp": {
+            "title": "Mgmtip",
+            "anyOf": [
+              { "type": "string", "format": "ipv4" },
+              { "type": "string", "format": "ipv6" }
+            ]
+          },
+          "driverType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/duckcli__backend__app__inventory__schemas__DriverTypeEnum"
+              }
+            ],
+            "default": "ssh"
+          },
+          "vendor": { "title": "Vendor", "type": "string", "default": "cisco" },
+          "model": { "title": "Model", "type": "string", "default": "xrv" },
+          "siteId": { "title": "Siteid", "type": "string", "default": "uxb" },
+          "region": {
+            "title": "Region",
+            "type": "string",
+            "default": "London"
+          },
+          "countryCode": {
+            "title": "Countrycode",
+            "type": "string",
+            "default": "UK"
+          },
+          "consoleServer": {
+            "title": "Consoleserver",
+            "type": "string",
+            "default": "console1.server"
+          },
+          "consolePort": {
+            "title": "Consoleport",
+            "type": "string",
+            "default": "portxx"
+          },
+          "softwareVersion": {
+            "title": "Softwareversion",
+            "type": "string",
+            "default": "unkown"
+          },
+          "deviceGroup": {
+            "title": "Devicegroup",
+            "type": "string",
+            "default": "other"
+          },
+          "deviceFunction": {
+            "allOf": [{ "$ref": "#/components/schemas/DeviceFunctionEnum" }],
+            "default": "other"
+          },
+          "automationEnabled": {
+            "allOf": [{ "$ref": "#/components/schemas/BoolEnum" }],
+            "default": "True"
+          },
+          "operatingEnv": {
+            "allOf": [{ "$ref": "#/components/schemas/OperatingEnvEnum" }],
+            "default": "test"
+          },
+          "itsmStrictMode": {
+            "allOf": [{ "$ref": "#/components/schemas/BoolEnum" }],
+            "default": "False"
+          },
+          "changeControl": {
+            "allOf": [{ "$ref": "#/components/schemas/BoolEnum" }],
+            "default": "False"
+          }
+        }
+      },
+      "DeviceFunctionEnum": {
+        "title": "DeviceFunctionEnum",
+        "enum": [
+          "access",
+          "core",
+          "backbone",
+          "firewall",
+          "loadbalancer",
+          "other"
+        ],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/ValidationError" }
+          }
+        }
+      },
+      "NetworkRead": {
+        "title": "NetworkRead",
+        "required": ["send_commands"],
+        "type": "object",
+        "properties": {
+          "send_commands": {
+            "title": "Send Commands",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Commands" }
+          }
+        }
+      },
+      "OperatingEnvEnum": {
+        "title": "OperatingEnvEnum",
+        "enum": ["prod", "preprod", "test", "dev", "stage"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "TargetHosts": {
+        "title": "TargetHosts",
+        "required": ["hosts"],
+        "type": "object",
+        "properties": {
+          "addresses": {
+            "title": "Addresses",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                { "type": "string", "format": "ipv4" },
+                { "type": "string", "format": "ipv6" }
+              ]
+            }
+          },
+          "hosts": {
+            "title": "Hosts",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "count": {
+            "title": "Count",
+            "maximum": 100.0,
+            "exclusiveMinimum": 0.0,
+            "type": "integer",
+            "default": 1
+          },
+          "interval": {
+            "title": "Interval",
+            "maximum": 10.0,
+            "exclusiveMinimum": 0.0,
+            "type": "integer",
+            "default": 0.5
+          },
+          "timeout": {
+            "title": "Timeout",
+            "maximum": 5.0,
+            "exclusiveMinimum": 0.0,
+            "type": "integer",
+            "default": 0.5
+          }
+        }
+      },
+      "User": {
+        "title": "User",
+        "required": ["username", "email", "password"],
+        "type": "object",
+        "properties": {
+          "username": { "title": "Username", "type": "string" },
+          "email": { "title": "Email", "type": "string" },
+          "is_superuser": {
+            "title": "Is Superuser",
+            "type": "boolean",
+            "default": false
+          },
+          "password": { "title": "Password", "type": "string" }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": { "anyOf": [{ "type": "string" }, { "type": "integer" }] }
+          },
+          "msg": { "title": "Message", "type": "string" },
+          "type": { "title": "Error Type", "type": "string" }
+        }
+      },
+      "duckcli__backend__app__inventory__schemas__DriverTypeEnum": {
+        "title": "DriverTypeEnum",
+        "enum": ["ssh", "netconf", "telnet", "console"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "duckcli__backend__app__network__read__schemas__DriverTypeEnum": {
+        "title": "DriverTypeEnum",
+        "enum": ["ssh", "netconf", "telnet", "console"],
+        "type": "string",
+        "description": "An enumeration."
+      }
+    },
+    "securitySchemes": {
+      "OAuth2PasswordBearer": {
+        "type": "oauth2",
+        "flows": { "password": { "scopes": {}, "tokenUrl": "login" } }
+      }
+    }
+  }
+}
