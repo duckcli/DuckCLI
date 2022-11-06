@@ -18,6 +18,7 @@ Install **DuckCLI**:
 ```console
 
 git clone https://github.com/duckcli/DuckCLI.git
+git checkout duckcli-v2-dev
 cd DuckCLI
 $ poerty build
 $ poerty install 
@@ -33,6 +34,9 @@ pip install dist/duckcli-*
 ### setup admin user 
 
 ```console
+cd DuckCLI
+Activate python venv :  poerty shell
+
  Usage: duck-cli-admin create-user [OPTIONS] USERNAME PASSWORD EMAIL --is-superuser
 
 ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -70,7 +74,10 @@ export duckcli_backend_ping_check_url: str = "https://<host-ip-address>:9999/pin
 ### Start the backend server 
 
 ```console
+
 cd DuckCLI
+
+Activate python venv :  poerty shell
 
 python server.py
 
