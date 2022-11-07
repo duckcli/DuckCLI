@@ -1,5 +1,6 @@
 .DS_Store
-.coverag*
+.coverage
+.coverage.*
 .hypothesis
 .pytest_cache
 .ipynb_checkpoints

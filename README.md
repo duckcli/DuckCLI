@@ -1,11 +1,9 @@
 # DuckCLI  - Alpha release
 
-It's main feature is to provide ✨ Network CLI interface ✨ in the Terminal**duck-cli**.
+Its main feature is to provide a CLI interface to run ✨ Network CLI commands ✨ on remote devices via a DuckCLI API backend server.
 
 
-You can  locally build and  install **DuckCLI** uisng poerty, and run your program with the `duck-cli` command in your Terminal, and it will provide CLI interface to your network, system and inventory backends.
-
-You can also use **DuckCLI** to generate  **duck-cli**  📝.
+You can  locally build and  install **DuckCLI** uisng Poerty, and run your cli commands with the `duck-cli` command in your Terminal, and it will provide CLI interface to your network, system and inventory backends.
 
 ## Usage
 
@@ -65,9 +63,10 @@ export duckcli_backend_password="xxxxx"
 **if backend is running on a diffrent machine then set these env vars on your client Machine**
 export duckcli_backend_inventory_url="https://<host-ip-address>:9999/inventory/device"
 export duckcli_backend_token_url="https://<host-ip-address>:9999/auth/login"
-export duckcli_backend_ping_check_url: str = "https://<host-ip-address>:9999/ping/start"
-export duckcli_backend_status_check_url: str = "https://<host-ip-address>:9999/server/status"
-export duckcli_backend_ping_check_url: str = "https://<host-ip-address>:9999/ping/start"
+export duckcli_backend_ping_check_url="https://<host-ip-address>:9999/ping/start"
+export duckcli_backend_status_check_url= "https://<host-ip-address>:9999/server/status"
+export duckcli_backend_network_read_url="https://host-ip-address>9999/network/read/genie"
+
 
 ```
 
@@ -105,7 +104,7 @@ duck-cli inventory device-info --os-type cisco_xr --export
 ----
 * duck-cli ping pinger --hostname "inetgw" --count 5
 * duck-cli ping pinger --hostname "inetgw" --count 5 --live
-* duck-cli ping pinger --hostnames "192.168.0.1|192.168.0.2" --count 5 --live --no-inventory
-* duck-cli ping pinger --hostnames "192.168.0.1|192.168.0.2" --count 5 --no-inventory
+* duck-cli ping pinger --hostname "192.168.0.1|192.168.0.2" --count 5 --live --no-inventory
+* duck-cli ping pinger --hostname "192.168.0.1|192.168.0.2" --count 5 --no-inventory
 ---
 ```

@@ -1,0 +1,9 @@
+[run]
+
+source =
+     ./src/duckcli
+     tests
+
+parallel= True
+[coverage:report]
+skip_empty = true
