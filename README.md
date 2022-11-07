@@ -1,6 +1,6 @@
 # DuckCLI  - Alpha release
 
-Its main feature is to provide a CLI interface to run ✨ Network CLI commands ✨ on remote devices via a DuckCLI API backend server.
+Its main feature is to provide a CLI interface to run ✨ Network CLI commands ✨ on multiple remote devices via a DuckCLI API backend server.
 
 
 You can  locally build and  install **DuckCLI** uisng Poerty, and run your cli commands with the `duck-cli` command in your Terminal, and it will provide CLI interface to your network, system and inventory backends.
@@ -91,10 +91,10 @@ icmplib.exceptions.SocketPermissionError: Root privileges are required to create
 
 ```console
 --
-duck-cli inventory device-info --hostname "*cisco.com"
-duck-cli inventory device-info --site-id sandbox
-duck-cli inventory device-info --os-type cisco_xr
-duck-cli inventory device-info --os-type cisco_xr --export
+* duck-cli inventory device-info --hostname "*cisco.com"
+* duck-cli inventory device-info --site-id sandbox
+* duck-cli inventory device-info --os-type cisco_xr
+* duck-cli inventory device-info --os-type cisco_xr --export
 --
 * duck-cli network  run-cmd --hostnames "sandbox-iosxr-1.cisco.com|sandbox-iosxr-2.cisco.com" --commands "show version|show interfaces description|show inventory" 
 * duck-cli network  run-cmd  --hostnames "sandbox-iosxr-1.cisco.com|sandbox-iosxr-2.cisco.com" --commands "show version"  --raw-format
