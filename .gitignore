@@ -12,7 +12,7 @@ key.*
 cert.*
 *.cert
 *.key
-temp*
+temp
 duckcli.egg-info*
 dist
 venv

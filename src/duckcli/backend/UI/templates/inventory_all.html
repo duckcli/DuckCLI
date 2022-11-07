@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>Inventory Details</title>
+    <link href="{{ url_for('static', path='/inventory_styles.css') }}" rel="stylesheet">
+</head>
+
+<body>
+{% for device in devices %}
+    <h3>Hostname : {{ device.hostname }}</h3>
+        <h5>Mgmt IP : {{ device.mgmtIp }}</h5>
+        <h5>Vendor : {{ device.vendor }}</h5>
+        <h5>Model : {{ device.model }}</h5>
+        <h5>OS Type : {{ device.osType }}</h5>
+        <h5>Automation Driver : {{ device.driverType}}</h5>
+{% endfor %}
+</body>
+
+</html>

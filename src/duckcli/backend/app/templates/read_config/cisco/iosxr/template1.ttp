@@ -1,0 +1,52 @@
+<group name= "vrfs.{{ vrf }}" >
+vrf {{ vrf }}
+ rd {{ rd }}
+ address-family {{address_family}} {{af_type}}
+  <group name= "import_rt*" >
+  import route-target
+   {{imp}}
+  </group>
+  !
+ <group name= "export_rt*" >
+  export route-target
+   {{exp}}
+  </group>
+
+
+  ----
+
+  vrf OM-Power
+ address-family ipv4 unicast
+  import route-target
+   65000:201
+   65000:202
+  !
+  export route-target
+   65000:205
+  !
+ !
+!
+vrf CustomerA
+ rd 65000:10
+ address-family ipv4 unicast
+  import route-target
+   65000:10
+  !
+  export route-target
+   65000:10
+  !
+ !
+ ----
+
+<group name= "bgp_neighbors*.{{ neighbor }}" >
+Mon Oct 17 12:58:01.841 EDT
+
+Neighbor        Spk    AS Description                          Up/Down  NBRState
+{{neighbor}}           {{spk}}   {{as}}                                      {{up_down}} {{state}}
+</group>
+
+Mon Oct 17 12:58:01.841 EDT
+
+Neighbor        Spk    AS Description                          Up/Down  NBRState
+1.1.1.1           0   200                                      00:00:00 Idle
+2.2.2.2           0   100                                      00:00:00 Idle
