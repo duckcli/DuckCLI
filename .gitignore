@@ -19,7 +19,7 @@ venv
 env
 *.zip
 site
-.vscode
+.Vscode
 .mypy_cache
 .idea
 *.db
