@@ -10,7 +10,8 @@ You can  locally build and  install **DuckCLI** uisng Poerty, and run your cli c
 ### Install using Poetry
 
 Install **DuckCLI**:
-
+note: You need to install Poetry on your build machine
+<https://python-poetry.org/docs/#installation>
 <div class="termy">
 
 ```console
