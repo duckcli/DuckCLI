@@ -24,7 +24,7 @@ $ poerty install
 Successfully installed DuckCLI
 ```
 
-### Install using setup tools [!! not tested but this shohuld work !!]
+### Install using setup tools [!! not tested but this should work !!]
 python setup.py sdist
 
 pip install dist/duckcli-*
