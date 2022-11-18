@@ -103,6 +103,46 @@ icmplib.exceptions.SocketPermissionError: Root privileges are required to create
 ----
 
 ```
+
+### Add your network device to the inventory DB
+
+```console
+Open Postman or any API dev tool
+# Get auth token 
+POST https://localhost:9999/auth/login
+Set these body parms
+-----
+x-www-from-urlencoded 
+Key :username
+value: admin 
+key: password
+vlaue : Password123!  
+--
+
+# Create new device 
+
+POST https://localhost:9999/inventory/device
+
+authorization: Bearer Token
+
+Body type:  raw / JSON
+
+{
+        "hostname": "sandbox-iosxr-1.cisco.com",
+        "vendor": "Cisco",
+        "model": "xrv",
+        "osType": "cisco_xr",
+        "mgmtIp": "131.226.217.150",
+        "driverType": "ssh",
+        "siteId": "sandbox"
+    }
+
+# Check if the device is added to the DB 
+
+GET https://localhost:9999/inventory/device
+
+```
+
 ### Example CLI commands
 
 ```console
