@@ -8,7 +8,7 @@ from hypothesis import given, settings, strategies as st
 
 
 @given(
-    hostname=st.sampled_from(["192.168.0.1"]),
+    hostname=st.sampled_from(["duckcli.com"]),
     site_id=st.one_of(st.text()),
     live=st.sampled_from([False]),
     count=st.sampled_from([1]),

@@ -24,7 +24,7 @@ $ poerty install
 Successfully installed DuckCLI
 ```
 
-### Install using setup tools
+### Install using setup tools [!! not tested but this shohuld work !!]
 python setup.py sdist
 
 pip install dist/duckcli-*
@@ -35,7 +35,15 @@ pip install dist/duckcli-*
 cd DuckCLI
 Activate python venv :  poerty shell
 
+
+Example: 
+
+duck-cli-admin create-user admin Password123! dem123@duckcli.com --is-superuser
+
+
+-----
  Usage: duck-cli-admin create-user [OPTIONS] USERNAME PASSWORD EMAIL --is-superuser
+
 
 ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │ *username      TEXT  [default: None] [required]                                                                      │
@@ -78,6 +86,14 @@ cd DuckCLI
 
 Activate python venv :  poerty shell
 
+Add ssl cert and key path in server.py -
+        ssl_keyfile="key.key"
+        ssl_certfile="cert.cer"
+
+--Creating a self-signed cert ----
+openssl req -x509 -nodes -days 1000 -newkey rsa:2048 -keyout  key.key -out cert.cer
+--------------------
+-- Run server
 python server.py
 
 Note: icmplib requires Root privileges to create the socket; hence you may need to run the server as sudo user or give the correct permission for the logged-in user.
@@ -90,6 +106,16 @@ icmplib.exceptions.SocketPermissionError: Root privileges are required to create
 ### Example CLI commands
 
 ```console
+Open a new terminal
+cd DuckCLI
+
+Activate python venv :  poerty shell
+Set client machine env vars
+
+Example: 
+export duckcli_backend_username="admin"
+export duckcli_backend_password="Password123!"
+
 --
 * duck-cli inventory device-info --hostname "*cisco.com"
 * duck-cli inventory device-info --site-id sandbox
