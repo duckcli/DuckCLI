@@ -119,11 +119,11 @@ key: password
 vlaue : Password123!  
 --
 
-# Create new device 
+# Create a new device 
 
 POST https://localhost:9999/inventory/device
 
-authorization: Bearer Token
+authorization: Bearer Token  [copy-paste the token from the auth response]
 
 Body type:  raw / JSON
 
