@@ -10,8 +10,12 @@ You can  locally build and  install **DuckCLI** uisng Poerty, and run your cli c
 ### Install using Poetry
 
 Install **DuckCLI**:
+
 note: You need to install Poetry on your build machine
+
 <https://python-poetry.org/docs/#installation>
+
+
 <div class="termy">
 
 ```console
@@ -60,9 +64,12 @@ duck-cli-admin create-user admin Password123! dem123@duckcli.com --is-superuser
 
 ```console
 **set these env vars on your backend server**
-export duckcli_app_network_read_username="xxxxx" # set your read-only network username
-export duckcli_app_network_read_password="xxxxxxx"
-export duckcli_jwt_secret_key="xxxxxxxxxxxxxxxxxxxxxxx"  # must be 64 chr/256bits
+# DuckCLI/src/duckcli/backend/app/settings/settings.py
+export duckcli_app_network_read_username="xxxxx" # set your read-only network username. default is - admin
+export duckcli_app_network_read_password="xxxxxxx" # default is C1sco12345
+#DuckCLI/src/duckcli/backend/core/settings/settings.py
+export duckcli_jwt_secret_key="xxxxxxxxxxxxxxxxxxxxxxx"  # must be 64 chr/256bits. 
+Note:  For testing & dev jwt secret key  is randomly generated inside settings.py file ---> comment out the generate function and set the key as env var
 
 ** on your CLI client machine set these env vars
 

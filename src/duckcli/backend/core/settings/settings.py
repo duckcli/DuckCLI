@@ -1,7 +1,10 @@
-from pydantic import BaseSettings
+from pydantic import BaseSettings, Field
 from functools import lru_cache
 import os
 import sys
+import random
+import string
+
 from enum import Enum
 
 BASE_DIR = os.getcwd()
@@ -14,6 +17,12 @@ class DbTypeEnum(str, Enum):
     PostgreSQL = "postgresql"
 
 
+def generate_secret_key(length=64):
+    all_chars = string.ascii_letters + string.digits + string.punctuation
+    secret_key = "".join(random.choices(all_chars, k=length))
+    return secret_key
+
+
 class Settings(BaseSettings):
     base_dir: str = os.getcwd()
     # Inventory settings
@@ -23,7 +32,7 @@ class Settings(BaseSettings):
     )
     inventory_fetch_limit: int = 500
     # JWT settings -  64 chrs (256bits) Must be set as ENV var
-    jwt_secret_key: str = None
+    jwt_secret_key: str = Field(generate_secret_key())  # change me
     jwt_access_token_expire_minutes: int = 600
     jwt_algorithm: str = "HS256"
     # DB settings

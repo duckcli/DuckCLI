@@ -26,19 +26,19 @@ class InventoryTypes(Enum):
 
 class InventoryABC(ABC):
     @abstractmethod
-    def add_device():
+    def add_device(self):
         pass
 
     @abstractmethod
-    def delete_device():
+    def delete_device(self):
         pass
 
     @abstractmethod
-    def update_device():
+    def update_device(self):
         pass
 
     @abstractmethod
-    def get_device_info():
+    def get_device_info(self):
         pass
 
 
